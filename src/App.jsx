@@ -1,16 +1,16 @@
 import React from "react";
 import ProductInformation from "views/ProductInformation/ProductInformation";
+import PasswordCreationForm from "views/PasswordCreationForm/PasswordCreationForm";
 import Stepper from "components/Stepper/Stepper";
 import { useState } from "react";
 import "./App.scss";
-import Button from "components/Button/Button";
+import "./styles/global.scss";
 
 const steps = [1, 2, 3];
 
 export default function App() {
-  const [activeStepIndex, setActiveStepIndex] = useState(0);
-  console.log(activeStepIndex);
-  function handleNextButton() {
+  const [activeStepIndex, setActiveStepIndex] = useState(1);
+  function handleNextButtonClick() {
     setActiveStepIndex((currentIndex) => {
       if (currentIndex + 1 < steps.length) return currentIndex + 1;
       return 0;
@@ -27,18 +27,18 @@ export default function App() {
                 <div className="title-divider"></div>
                 <div className="form">
                   {activeStepIndex === 0 ? <ProductInformation /> : null}
-                  {activeStepIndex === 1 ? <div /> : null}
+                  {activeStepIndex === 1 ? <PasswordCreationForm /> : null}
                   {activeStepIndex === 2 ? <div /> : null}
                 </div>
                 <div className="bottom-control-buttons-divider"></div>
                 <div className="bottom-control-buttons">
-                  <Button variant="secondary">Cancelar</Button>
-                  <Button onClick={handleNextButton}>
+                  <button className="secondary">Cancelar</button>
+                  <button className="primary" onClick={handleNextButtonClick}>
                     Siguiente
                     <div style={{ fontSize: "2em", marginLeft: "10px" }}>
                       &rsaquo;
                     </div>
-                  </Button>
+                  </button>
                 </div>
               </div>
             </Stepper>
