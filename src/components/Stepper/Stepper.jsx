@@ -8,7 +8,6 @@ import "./Stepper.scss";
 
 export default function Stepper(props) {
   const indicatorRefs = useMemo(() => {
-    console.log("Se ha vuelto a crear los step refs");
     return props.steps.map(() => createRef());
   }, [props.steps]);
   const pointerLeftPosition = useGetPointerLeftPositionOnStepChange(
