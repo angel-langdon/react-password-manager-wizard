@@ -1,0 +1,44 @@
+@import "styles/base";
+
+html {
+  color: $secondary-color;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  height: 45px;
+  border: 0px;
+  font-weight: 600;
+  cursor: pointer;
+  &.primary {
+    background-color: $secondary-color;
+    color: white;
+    &:hover {
+      background-color: rgba($secondary-color, 0.8);
+    }
+  }
+  &.secondary {
+    background-color: transparent;
+    color: $secondary-color;
+    &:hover {
+      background-color: rgba(128, 128, 128, 0.205);
+    }
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.row {
+  display: flex;
+}
+
+input {
+  min-height: 40px;
+}
