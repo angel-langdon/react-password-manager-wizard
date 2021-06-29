@@ -1,0 +1,27 @@
+@import "styles/base";
+
+.FeedbackAlert {
+  margin: 30px 50px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  background-color: $white;
+  box-sizing: border-box;
+  padding: 20px 50px;
+  .icon {
+    margin-right: 10px;
+    height: 35px;
+    width: 35px;
+  }
+  .bottom-button-container {
+    display: flex;
+    justify-content: flex-end;
+    button {
+      margin-top: 0px;
+    }
+  }
+  .label {
+    font-weight: 700;
+    font-size: 1.4em;
+  }
+}
