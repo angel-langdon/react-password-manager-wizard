@@ -32,13 +32,30 @@ button {
 .column {
   display: flex;
   flex-direction: column;
-  row-gap: 5px;
+  row-gap: 8px;
 }
 
 .row {
   display: flex;
 }
 
+.vertical-centered {
+  align-items: center;
+}
+.horizontal-centered {
+  justify-content: center;
+}
 input {
+  box-sizing: border-box;
+  font-size: 1.1em;
+  padding-left: 20px;
+  padding-right: 40px;
+  border-width: 1px;
+  letter-spacing: 0.011em;
+  border-color: rgba(85, 72, 72, 0.342);
   min-height: 40px;
+
+  &::placeholder {
+    color: $secondary-light-color;
+  }
 }
