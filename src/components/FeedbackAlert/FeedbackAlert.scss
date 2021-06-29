@@ -1,5 +1,7 @@
 @import "styles/base";
 
+$horizontal-padding: 50px;
+
 .FeedbackAlert {
   margin: 30px 50px;
   display: flex;
@@ -7,7 +9,10 @@
   row-gap: 20px;
   background-color: $white;
   box-sizing: border-box;
-  padding: 20px 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: $horizontal-padding;
+  padding-right: $horizontal-padding;
   .icon {
     margin-right: 10px;
     height: 35px;
@@ -23,5 +28,10 @@
   .label {
     font-weight: 700;
     font-size: 1.4em;
+  }
+
+  .divider {
+    width: calc(100% + 2 * #{$horizontal-padding});
+    margin-left: -$horizontal-padding;
   }
 }

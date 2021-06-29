@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { getPasswordStrength } from "./PasswordValidationInput.utils";
+import { getPasswordStrength } from "utils/passwordUtils/passwordUtils";
 
 export function useUpdateScoreOnPasswordChange(password, setPasswordScoreProp) {
   const [passwordScore, setPasswordScore] = useState(0);
