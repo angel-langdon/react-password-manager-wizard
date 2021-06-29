@@ -87,6 +87,7 @@ export default function App() {
                       Cancelar
                     </button>
                     <button
+                      id="next-button"
                       className="primary"
                       onClick={stepsCallback[activeStepIndex]}
                     >
