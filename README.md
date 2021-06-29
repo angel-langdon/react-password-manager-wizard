@@ -19,10 +19,12 @@ npm start
 
 ## App description and work made:
 
-The app is completely functional, however yesterday was my birthday and I have been celebrating it, due to this I have been very limited by time constraints.
+The app is completely functional, however yesterday was my birthday and I have been celebrating it, due to this fact, I have been very limited by time constraints.
 The app is completely finished and there are no bugs but there are some modules that I did not have time to test well enough.
 
 Also, I would like to point out that in the task it specifies a maximum of seven days and I have been given only three (maybe it's a mistake)
+
+And last but not least, I would have liked to spend one day more to build all the tests, refactor the code to be more clean, sort the imports, and improve even more the style sheets.
 
 
 
