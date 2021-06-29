@@ -36,6 +36,8 @@ $steps-container-height: 75px;
     justify-content: center;
     align-items: center;
     border-radius: 50px;
+    font-size: 1.05em;
+    font-weight: 450;
     width: 8px;
     height: 8px;
     padding: 8px;
@@ -45,6 +47,9 @@ $steps-container-height: 75px;
     width: 12px !important;
     height: 12px !important;
     padding: 11px !important;
+  }
+  .passed {
+    background-color: #d40039 !important;
   }
   .pointer {
     position: absolute;
