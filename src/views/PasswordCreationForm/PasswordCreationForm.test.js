@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { mount, shallow } from "enzyme";
 
 import PasswordCreationForm from "./PasswordCreationForm";
 import handleNextButtonClickUtil from "./PasswordCreationForm";
@@ -7,31 +7,32 @@ import { useState } from "react";
 
 function WrapperWithDefaultParams() {
   const [nextButtonClicked, setNextButtonClicked] = useState(false);
+  const [clue, setClue] = useState("");
   const [password, setPassword] = useState("");
   const [repeatedPassword, setRepeatedPassword] = useState("");
-  const [clue, setClue] = useState("");
-  const handleNextButtonClick = (setActiveStepIndex, steps) =>
-    handleNextButtonClick(setActiveStepIndex, steps);
+  const handleNextButtonClick = () =>
+    handleNextButtonClickUtil(setActiveStepIndex, steps);
 
-  <PasswordCreationForm>
-    {{
-      password,
-      setPassword,
-      repeatedPassword,
-      setRepeatedPassword,
-      clue,
-      setClue,
-      nextButtonClicked,
-      setNextButtonClicked,
-      handleNextButtonClick,
-    }}
-    ;
-  </PasswordCreationForm>;
+  return (
+    <PasswordCreationForm
+      {...{
+        password,
+        setPassword,
+        repeatedPassword,
+        setRepeatedPassword,
+        clue,
+        setClue,
+        nextButtonClicked,
+        setNextButtonClicked,
+        handleNextButtonClick,
+      }}
+    ></PasswordCreationForm>
+  );
 }
 
 describe("PasswordCreationForm (2º Step)", () => {
   it("renders without crashing", () => {
-    const editor = shallow(<WrapperWithDefaultParams />);
-    expect(editor.exists()).toBe(true);
+    const component = mount(<WrapperWithDefaultParams />);
+    expect(component.exists()).toBe(true);
   });
 });

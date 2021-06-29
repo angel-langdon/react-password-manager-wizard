@@ -13,7 +13,7 @@ export default function Feedback(props) {
     props.clue
   );
   return (
-    <CenteredAlert>
+    <CenteredAlert id="Feedback">
       {status === undefined ? <div className="loading-spinner"></div> : null}
       {status === 200 ? (
         <FeedbackAlert

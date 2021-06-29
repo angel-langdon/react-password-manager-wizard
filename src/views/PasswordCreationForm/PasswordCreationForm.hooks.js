@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getPasswordStrength } from "components/PasswordValidationInput/PasswordValidationInput.utils";
+import { getPasswordStrength } from "utils/passwordUtils/passwordUtils";
 
 export function useHandleNextButtonClick(
   nextButtonClicked,
@@ -15,7 +15,6 @@ export function useHandleNextButtonClick(
     if (firstPassword !== secondPassword) return;
     const { score } = getPasswordStrength(firstPassword);
     if (score === 100) {
-      console.log(firstPassword, secondPassword);
       handleNextButtonClick();
       return;
     }

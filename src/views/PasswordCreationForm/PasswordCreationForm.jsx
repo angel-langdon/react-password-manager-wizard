@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 import CenteredAlert from "components/CenteredAlert/CenteredAlert";
-import { getPasswordStrength } from "components/PasswordValidationInput/PasswordValidationInput.utils";
+import { getPasswordStrength } from "utils/passwordUtils/passwordUtils";
 import PasswordValidationInput from "components/PasswordValidationInput/PasswordValidationInput";
 import { useHandleNextButtonClick } from "./PasswordCreationForm.hooks";
 import infoIcon from "assets/icons/info.svg";
 import "./PasswordCreationForm.scss";
 
 const CLUE_MAXIMUM_LENGTH = 255;
-const MAX_PASSWORD_LENGTH = 25;
+export const MAX_PASSWORD_LENGTH = 25;
 
 export default function PasswordCreationForm(props) {
   const [showExtraInfo, setShowExtraInfo] = useState(false);
@@ -45,6 +45,7 @@ export default function PasswordCreationForm(props) {
         <div className="column">
           <strong>Crea tu Contraseña Maestra</strong>
           <PasswordValidationInput
+            id="password-input"
             value={password}
             onChange={(e) => {
               if (e.target.value.length <= MAX_PASSWORD_LENGTH)
@@ -56,6 +57,7 @@ export default function PasswordCreationForm(props) {
         <div className="column">
           <strong>Repite tu Contraseña Maestra</strong>
           <PasswordValidationInput
+            id="repeated-password-input"
             value={repeatedPassword}
             onChange={(e) => {
               if (e.target.value.length <= MAX_PASSWORD_LENGTH)
@@ -105,7 +107,8 @@ export default function PasswordCreationForm(props) {
           placeholder="Introduce tu pista"
           value={clue}
           onChange={(e) => {
-            if (e.target.value.length < 256) setClue(e.target.value);
+            if (e.target.value.length <= CLUE_MAXIMUM_LENGTH)
+              setClue(e.target.value);
           }}
         ></input>
         <div className="clue-length-indicator">{`${clue.length}/${CLUE_MAXIMUM_LENGTH}`}</div>
@@ -117,8 +120,8 @@ export default function PasswordCreationForm(props) {
               </strong>
               {getPasswordStrength(password)
                 .requirements.filter((req) => !req.passesTest)
-                .map((req) => (
-                  <li>{req.description}</li>
+                .map((req, index) => (
+                  <li key={index}>{req.description}</li>
                 ))}
               <button
                 className="close-button"
