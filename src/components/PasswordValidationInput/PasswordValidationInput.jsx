@@ -11,10 +11,8 @@ import hideEyeIcon from "assets/icons/hide-eye.svg";
 
 export default function PasswordValidationInput(props) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const { style, ...otherProps } = props;
-  const [score, requirements] = useUpdateScoreOnPasswordChange(
-    otherProps.value
-  );
+  const { style, setPasswordScore, ...otherProps } = props;
+  const score = useUpdateScoreOnPasswordChange(otherProps.value);
   return (
     <div className="PasswordValidationInput">
       <input
